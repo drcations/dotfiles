@@ -21,8 +21,6 @@ alias be="bundle exec"
 #Bundler
 export BUNDLER_EDITOR="sublime"
 
-
-
 #test
 # store colors
 MAGENTA="\[\033[0;35m\]"
@@ -35,11 +33,11 @@ RED="\[\033[0;31m\]"
 VIOLET='\[\033[01;35m\]'
  
 function color_my_prompt {
-  local __user_and_host="$GREEN\u@\h"
-  local __cur_location="$BLUE\W"           # capital 'W': current directory, small 'w': full file path
-  local __git_branch_color="$GREEN"
-  local __prompt_tail="$VIOLET$"
-  local __user_input_color="$GREEN"
+  local __user_and_host="$RED\u@\h"
+  local __cur_location="$LIGHT_GRAY\w"           # capital 'W': current directory, small 'w': full file path
+  local __git_branch_color="$MAGENTA"
+  local __prompt_tail="$VIOLET"
+  local __user_input_color="$CYAN"
   local __git_branch='$(__git_ps1)'; 
   
   # colour branch name depending on state
@@ -61,12 +59,12 @@ function color_my_prompt {
 export PROMPT_COMMAND=color_my_prompt
  
 # if .git-prompt.sh exists, set options and execute it
-if [ -f ~/.git-prompt.sh ]; then
-  GIT_PS1_SHOWDIRTYSTATE=true
-  GIT_PS1_SHOWSTASHSTATE=true
-  GIT_PS1_SHOWUNTRACKEDFILES=true
-  GIT_PS1_SHOWUPSTREAM="auto"
-  GIT_PS1_HIDE_IF_PWD_IGNORED=true
-  GIT_PS1_SHOWCOLORHINTS=true
-  . ~/.git-prompt.sh
-fi
+#if [ -f ~/Scripts/git-prompt.sh ]; then
+#  GIT_PS1_SHOWDIRTYSTATE=true
+#  GIT_PS1_SHOWSTASHSTATE=true
+#  GIT_PS1_SHOWUNTRACKEDFILES=true
+#  GIT_PS1_SHOWUPSTREAM="auto"
+#  GIT_PS1_HIDE_IF_PWD_IGNORED=true
+#  GIT_PS1_SHOWCOLORHINTS=true
+#  . ~/Scripts/git-prompt.sh
+#fi
