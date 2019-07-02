@@ -1,5 +1,13 @@
+
+
 source ~/Scripts/git-prompt.sh
 source ~/Scripts/git-completion.bash
+
+
+#History
+HISTFILESIZE=10000000
+HISTSIZE=10000000
+HISTTIMEFORMAT="[%F %T] "
 
 #Ruby \\ rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -17,6 +25,8 @@ alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias alert='terminal-notifier -title "Terminal" -message "Done!"'
 alias gc="git checkout"
 alias be="bundle exec"
+alias gpa='find /Users/Dave/Projects -mindepth 1 -maxdepth 1 -type d \( ! -iname ".*" \) -print -exec git -C {} pull \;'
+
 
 #Bundler
 export BUNDLER_EDITOR="sublime"
@@ -68,3 +78,7 @@ export PROMPT_COMMAND=color_my_prompt
 #  GIT_PS1_SHOWCOLORHINTS=true
 #  . ~/Scripts/git-prompt.sh
 #fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
